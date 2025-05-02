@@ -11,17 +11,17 @@
     <h1>Hello Into My Blog</h1>
 
     <article>
-        <h2>Post 1 Blog Title</h2>
+        <a href="post/post-1">Post 1 Blog Title</a>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore repudiandae sapiente assumenda iure quam eum animi delectus saepe sed optio ducimus veritatis tempore, atque adipisci similique possimus architecto cupiditate. Dolorem!</p>
     </article>
 
     <article>
-        <h2>Post 2 Blog Title</h2>
+        <a href="post/post-2">Post 2 Blog Title</a>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore repudiandae sapiente assumenda iure quam eum animi delectus saepe sed optio ducimus veritatis tempore, atque adipisci similique possimus architecto cupiditate. Dolorem!</p>
     </article>
 
     <article>
-        <h2>Post 3 Blog Title</h2>
+        <a href="post/post-3">Post 3 Blog Title</a>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore repudiandae sapiente assumenda iure quam eum animi delectus saepe sed optio ducimus veritatis tempore, atque adipisci similique possimus architecto cupiditate. Dolorem!</p>
     </article>
 </body>
