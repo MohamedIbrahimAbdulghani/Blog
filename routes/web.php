@@ -11,5 +11,12 @@ Route::get('post/{title?}', function($title = null) {
         'title' => $title
     ]);
 })->whereAlpha('title');
+
 // })->whereAlphaNumeric('title');
 // })->where('title', '[A-z]+');
+
+// Route::get('post/{title?}', function($title = null) {
+//     return view('post', [
+//         'title' => $title
+//     ]);
+// });
