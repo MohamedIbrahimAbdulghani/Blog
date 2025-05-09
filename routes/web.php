@@ -6,17 +6,15 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('post/{title?}', function($title = null) {
-    return view('post', [
-        'title' => $title
-    ]);
-})->whereAlpha('title');
 
-// })->whereAlphaNumeric('title');
-// })->where('title', '[A-z]+');
-
-// Route::get('post/{title?}', function($title = null) {
+// Route::get('post/{title?}', function($title=null) {
 //     return view('post', [
 //         'title' => $title
 //     ]);
 // });
+
+Route::get('posts/{title?}', function($title = null) {
+    return view('post', [
+        'title' => $title
+    ]);
+})->where('title', '[a-zA-Z0-9\-]+'); // i used where to stop title when this title have any char ( $@!^&* )
