@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 
 
-// Route::get('post/{title?}', function($title=null) {
+// Route::get('posts/{title?}', function($title=null) {
 //     return view('post', [
 //         'title' => $title
 //     ]);
