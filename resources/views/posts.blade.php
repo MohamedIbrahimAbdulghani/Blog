@@ -2,6 +2,7 @@
 @extends('layouts.layout')
 
 @section('content')
+
 <h1>Hello Into My Blog</h1>
 
 <article>
