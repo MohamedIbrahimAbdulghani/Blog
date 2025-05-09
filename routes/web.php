@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 Route::get('/', function () {
-    return view('posts');
+    $user = User::findOrFail(1);
+    return view('posts', [
+        'user' => $user
+    ]);
 });
 
 
