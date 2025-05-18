@@ -24,9 +24,11 @@
 
 <section class="w-20">
     <h2>Current Users</h2>
+    @foreach ($users as $user)
     <ul>
-        <li>{{ $user->name }}</li>
+        <li>{{ $user->email }}</li>
     </ul>
+    @endforeach
 
 </section>
 
