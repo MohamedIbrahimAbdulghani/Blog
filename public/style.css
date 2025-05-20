@@ -12,7 +12,6 @@ article {
     margin-top: 20px;
     border-bottom: 1px solid blue;
 }
-
 .w-80 {
     width: 75%;
     float: left;
@@ -24,4 +23,10 @@ article {
     padding: 20px;
     background-color: skyblue;
     color: white;
+}
+ul {
+    margin-bottom: 0;
+}
+h1 {
+    margin-top: 10px;
 }

@@ -24,12 +24,12 @@
 
 <section class="w-20">
     <h2>Current Users</h2>
+    {{-- $users as variable returned data from database in web file  --}}
     @foreach ($users as $user)
     <ul>
-        <li>{{ $user->email }}</li>
+        <li>{{ $user->name }}</li>
     </ul>
     @endforeach
-
 </section>
 
 @endsection
