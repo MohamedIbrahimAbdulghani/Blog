@@ -20,7 +20,11 @@
         <a href="posts/post-3">Post 3 Blog Title</a>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore repudiandae sapiente assumenda iure quam eum animi delectus saepe sed optio ducimus veritatis tempore, atque adipisci similique possimus architecto cupiditate. Dolorem!</p>
     </article>
+
+<h2 class="title">i will go to school by my new car</h2>
+
 </section>
+
 
 <section class="w-20">
     <h2>Current Users</h2>
@@ -30,6 +34,11 @@
         <li>{{ $user->name }}</li>
     </ul>
     @endforeach
+
+</section>
+
+<section class="image-section">
+    <img src="{{ asset('images/a1d54c8c-cafc-4715-b446-95c2645dc459.jpg') }}" alt="">
 </section>
 
 @endsection
