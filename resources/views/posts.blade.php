@@ -28,8 +28,5 @@
 
 </section>
 
-<section class="image-section">
-    <img src="{{ asset('images/a1d54c8c-cafc-4715-b446-95c2645dc459.jpg') }}" alt="">
-</section>
 
 @endsection

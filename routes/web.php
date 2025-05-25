@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 //     // return view('posts', compact('posts'));
 // });
 
+
 Route::get('/', [PostsController::class, 'index']);
 
 
