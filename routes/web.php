@@ -1,12 +1,19 @@
 <?php
 
-use App\Models\User;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $users = User::all();
-    return view('posts', compact('users'));
-});
+// Route::get('/', function () {
+//     // $users = User::all();
+//     // $posts = Post::all();
+//     // return view('posts', compact('users'));
+
+//     // $posts = Post::all();
+//     // dd($posts);
+//     // return view('posts', compact('posts'));
+// });
+
+Route::get('/', [PostsController::class, 'index']);
 
 
 // Route::get('posts/{title?}', function($title=null) {
