@@ -5,10 +5,14 @@
 
 <h1>Hello Into My Blog</h1>
 
+<a href="{{ route('posts.create') }}" class="btn btn-secondary mb-2">Create A New Post</a>
+
+
 <section class="w-80">
 @foreach ($posts as $post)
     <article>
-        <a href="posts/post-1">{{ $post->title }}</a>
+        <input type="hidden" name="id" value="{{ $post->id }}">
+        <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
     </article>
 @endforeach
@@ -17,16 +21,6 @@
 </section>
 
 
-<section class="w-20">
-    <h2>Current Users</h2>
-    {{-- $users as variable returned data from database in web file  --}}
-    @foreach ($users as $user)
-    <ul>
-        <li>{{ $user->name }}</li>
-    </ul>
-    @endforeach
-
-</section>
 
 
 @endsection
