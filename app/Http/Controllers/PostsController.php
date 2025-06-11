@@ -28,5 +28,8 @@ class PostsController extends Controller
         ]);
         return redirect('/');
 
+        // unset($request['_token']);
+        // dd($request->all());
+
     }
 }

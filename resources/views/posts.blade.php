@@ -7,7 +7,6 @@
 
 <a href="{{ route('posts.create') }}" class="btn btn-secondary mb-2">Create A New Post</a>
 
-
 <section class="w-80">
 @foreach ($posts as $post)
     <article>
@@ -17,10 +16,6 @@
     </article>
 @endforeach
 
-
 </section>
-
-
-
 
 @endsection
