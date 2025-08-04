@@ -23,6 +23,7 @@
         <input type="hidden" name="id" value="{{ $post->id }}">
         <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
+        <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit This Post</a>
     </article>
 @endforeach
 
