@@ -20,6 +20,7 @@ Route::post('posts/store', [PostsController::class, 'store'])->name('posts.store
 Route::get('posts/{id}', [PostsController::class, 'show']);
 Route::get('posts/{id}/edit', [PostsController::class, 'edit']);
 Route::put('posts/{id}', [PostsController::class, 'update'])->name('posts.update');
+Route::delete('posts/{id}', [PostsController::class, 'destroy'])->name('posts.delete');
 
 // Route::get('posts/{title?}', function($title=null) {
 //     return view('post', [

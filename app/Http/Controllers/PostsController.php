@@ -56,6 +56,11 @@ class PostsController extends Controller
         ]);
         // 3 - Return User Back
         // return redirect('/');
-        return back()->with('success', 'Updated Post Successful ');
+        return back()->with('success', 'Updated ');
+    }
+    public function destroy($id) {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return back()->with('success', 'Deleted');
     }
 }

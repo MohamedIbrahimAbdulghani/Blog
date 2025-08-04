@@ -4,7 +4,13 @@
 @section('content')
 
 <h1>Hello Into My Blog</h1>
-
+    {{-- Start Success Message --}}
+    @if(session()->has('success'))
+        <div class="alert alert-success text-center">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+    {{-- End Success Message --}}
 <section class="w-20">
 <h1>Current Users</h1>
 
@@ -23,7 +29,14 @@
         <input type="hidden" name="id" value="{{ $post->id }}">
         <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
-        <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit This Post</a>
+        <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit</a>
+
+        <form action="{{ route('posts.delete', $post->id) }}" method="post" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Delete" class="btn btn-danger d-inline-block">
+        </form>
+
     </article>
 @endforeach
 
