@@ -5,9 +5,19 @@
 
 <h1>Hello Into My Blog</h1>
 
-<a href="{{ route('posts.create') }}" class="btn btn-secondary mb-2">Create A New Post</a>
+<section class="w-20">
+<h1>Current Users</h1>
+
+<ul>
+    @foreach($users as $user)
+        <li>{{ $user->name }}</li>
+    @endforeach
+</ul>
+
+</section>
 
 <section class="w-80">
+    <a href="{{ route('posts.create') }}" class="btn btn-success mb-2">Create A New Post</a>
 @foreach ($posts as $post)
     <article>
         <input type="hidden" name="id" value="{{ $post->id }}">

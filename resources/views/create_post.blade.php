@@ -4,11 +4,32 @@
 @section('content')
 
 <h2 class="text-center mt-3">Add A New Post</h2>
+
+    {{-- Start Error Message --}}
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    {{-- End Error Message --}}
+
+    {{-- Start Success Message --}}
+    @if(session()->has('success'))
+        <div class="alert alert-success text-center">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+    {{-- End Success Message --}}
+
 <form action="{{ route('posts.store') }}" method="post">
-  @csrf
-  <div class="mb-3">
+  @csrf  <!-- this is very important to make this form done -->
+  {{-- <div class="mb-3">
     <input type="text" class="form-control" name="image" id="image" placeholder="Please Enter Image Name">
-    </div>
+    </div> --}}
   <div class="mb-3">
     <input type="text" class="form-control" name="title" id="title" placeholder="Please Enter Title">
   </div>

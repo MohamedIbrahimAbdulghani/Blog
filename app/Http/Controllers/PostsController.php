@@ -10,26 +10,32 @@ class PostsController extends Controller
 {
     public function index() {
         $posts = Post::all();
-        return view('posts', compact('posts'));
+        $users = User::all();
+        return view('posts', compact('posts', 'users'));
     }
-    public function show($id) {
-        $post = Post::findOrFail($id);
-        $title = $post->title;
-        return view('post', compact('post', 'title'));
-    }
+
     public function create() {
         return view('create_post');
     }
-        public function store(Request $request) {
+
+    public function show($id) {
+        $post = Post::findOrFail($id);
+        return view('post', compact('post'));
+    }
+
+    public function store(Request $request) {
+        // 1 - make validation about myData
+        $request->validate([
+            'title' => 'required|min:3',
+            'description' => 'required'
+        ]);
+        // 2 - Store - Save Data In DataBase
         $posts = Post::create([
             'title' => $request->title,
-            'image' => $request->image,
             'description' => $request->description
         ]);
-        return redirect('/');
-
-        // unset($request['_token']);
-        // dd($request->all());
-
+        // 3 - Return User Back
+        // return redirect('/');
+        return back()->with('success', 'Add Post Successful ');
     }
 }
