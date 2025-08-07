@@ -37,3 +37,6 @@ Route::get('posts/{title?}', function($title = null) {
 })->where('title', '[a-zA-Z0-9\-]+'); // i used where to stop title when this title have any char ( $@!^&* )
 
 // Route::get('posts/{id}', )
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
