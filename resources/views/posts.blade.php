@@ -1,9 +1,14 @@
 
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
-<h1>Hello Into My Blog</h1>
+    <div class="container">
+        @auth  <!-- it is meaning if it make authentication in my website or it is has account in my website  -->
+            <h1>Hello {{ Auth::user()->name }} Into My Blog</h1>
+            @else <!-- it it meaning if it don't make authentication in my website or it is don't has account in my website ( guest )  -->
+                <h1>Hello In My Blog</h1>
+        @endauth
     {{-- Start Success Message --}}
     @if(session()->has('success'))
         <div class="alert alert-success text-center">
@@ -41,5 +46,6 @@
 @endforeach
 
 </section>
+    </div>
 
 @endsection

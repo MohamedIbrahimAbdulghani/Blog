@@ -1,9 +1,10 @@
 
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
-<h2 class="text-center mt-3">Add A New Post</h2>
+    <div class="container">
+        <h2 class="text-center mt-3">Add A New Post</h2>
 
     {{-- Start Error Message --}}
     @if($errors->any())
@@ -38,5 +39,6 @@
   </div>
   <button type="submit" class="btn btn-primary m-auto d-table">Add</button>
 </form>
+    </div>
 
 @endsection
