@@ -3,6 +3,7 @@
 
 @section('content')
 
+{{ auth::user()->function_to_returned_phone }}
     <div class="container">
         @auth  <!-- it is meaning if it make authentication in my website or it is has account in my website  -->
             <h1>Hello {{ Auth::user()->name }} Into My Blog</h1>

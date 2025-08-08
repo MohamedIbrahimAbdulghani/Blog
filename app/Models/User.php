@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // this is function to returned phone number from phones table
+    public function function_to_returned_phone() {
+        return $this->hasOne(Phones::class, 'user_id');
+    }
 }

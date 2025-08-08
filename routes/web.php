@@ -39,4 +39,5 @@ Route::get('posts/{title?}', function($title = null) {
 // Route::get('posts/{id}', )
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [PostsController::class, 'index'])->name('home');
