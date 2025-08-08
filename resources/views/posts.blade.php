@@ -3,7 +3,7 @@
 
 @section('content')
 
-{{ auth::user()->function_to_returned_phone }}
+{{-- {{ auth::user()->function_to_returned_phone }} --}}
     <div class="container">
         @auth  <!-- it is meaning if it make authentication in my website or it is has account in my website  -->
             <h1>Hello {{ Auth::user()->name }} Into My Blog</h1>
@@ -35,6 +35,9 @@
         <input type="hidden" name="id" value="{{ $post->id }}">
         <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
+
+        <p>This post added by { {{ $post->function_to_returned_user->name }} }</p>
+
         <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit</a>
 
         <form action="{{ route('posts.delete', $post->id) }}" method="post" class="d-inline">

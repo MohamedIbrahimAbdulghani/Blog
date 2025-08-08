@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -32,7 +33,8 @@ class PostsController extends Controller
         // 2 - Store - Save Data In DataBase
         $posts = Post::create([
             'title' => $request->title,
-            'description' => $request->description
+            'description' => $request->description,
+            'user_id' => Auth::user()->id  // Added user_id because relationship between user and post
         ]);
         // 3 - Return User Back
         // return redirect('/');
