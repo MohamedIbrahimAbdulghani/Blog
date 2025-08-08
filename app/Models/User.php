@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function function_to_returned_phone() {
         return $this->hasOne(Phones::class, 'user_id');
     }
+    // this is function to returned posts from posts table
+    public function function_to_returned_post() {
+        return $this->hasMany(Post::class);
+    }
 }
