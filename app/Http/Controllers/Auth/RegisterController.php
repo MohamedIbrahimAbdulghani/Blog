@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,6 +51,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'national_number' => ['required', 'min:14'],
+            'phone_number' => ['required', 'max:13'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -63,10 +66,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // $user =  User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+        // DB::table('phones')->insert([
+        //     'phone_number' => $data['phone_number'],
+        //     'user_id' => $user->id
+        // ]);
+        // DB::table('national__numbers')->insert([
+        //     'national_number' => $data['national_number'],
+        //     'user_id' => $user->id
+        // ]);
+        // return $user;
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $user->get_phone_by_user()->create([
+            'phone_number' => $data['phone_number'],
+        ]);
+                $user->get_national_number_by_user()->create([
+            'national_number' => $data['national_number'],
+        ]);
+
+        return $user;
     }
 }

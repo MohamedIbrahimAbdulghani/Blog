@@ -46,12 +46,13 @@ class User extends Authenticatable
         ];
     }
 
-    // this is function to returned phone number from phones table
-    public function function_to_returned_phone() {
-        return $this->hasOne(Phones::class, 'user_id');
+    // this line to make relationship between user and phone
+    public function get_phone_by_user() {
+        return $this->hasOne(Phone::class);
     }
-    // this is function to returned posts from posts table
-    public function function_to_returned_post() {
-        return $this->hasMany(Post::class);
+    // this line to make relationship between user and national_number
+    public function get_national_number_by_user() {
+        return $this->hasOne(National_Number::class);
     }
+
 }

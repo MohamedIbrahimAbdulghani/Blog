@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', [PostsController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('posts', [PostsController::class, 'index']);
 Route::get('posts/create', [PostsController::class, 'create'])->name('posts.create');
 Route::post('posts/store', [PostsController::class, 'store'])->name('posts.store');
 Route::get('posts/{id}', [PostsController::class, 'show']);
@@ -40,4 +42,4 @@ Route::get('posts/{title?}', function($title = null) {
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [PostsController::class, 'index'])->name('home');
+// Route::get('/home', [PostsController::class, 'index'])->name('home');

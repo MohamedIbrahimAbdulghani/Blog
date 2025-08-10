@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mechanic;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,9 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index() {
         $posts = Post::all();
         $users = User::all();
+
         return view('posts', compact('posts', 'users'));
     }
 
@@ -34,7 +40,6 @@ class PostsController extends Controller
         $posts = Post::create([
             'title' => $request->title,
             'description' => $request->description,
-            'user_id' => Auth::user()->id  // Added user_id because relationship between user and post
         ]);
         // 3 - Return User Back
         // return redirect('/');

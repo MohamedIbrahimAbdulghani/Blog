@@ -3,7 +3,11 @@
 
 @section('content')
 
-{{-- {{ auth::user()->function_to_returned_phone }} --}}
+    {{-- {{ Auth::user()->get_national_number_by_user->National_number}} --}}
+
+    {{-- {{ Auth::user()->get_national_number_by_user->National_Number }} . "<br>"
+    {{ Auth::user()->get_phone_by_user->phone_number }} --}}
+
     <div class="container">
         @auth  <!-- it is meaning if it make authentication in my website or it is has account in my website  -->
             <h1>Hello {{ Auth::user()->name }} Into My Blog</h1>
@@ -22,21 +26,22 @@
 
 <ul>
     @foreach($users as $user)
-        <li>{{ $user->name }}</li>
+        <li>{{ $user->name }} </li>
+
     @endforeach
 </ul>
 
 </section>
 
 <section class="w-80">
-    <a href="{{ route('posts.create') }}" class="btn btn-success mb-2">Create A New Post</a>
+    @auth
+        <a href="{{ route('posts.create') }}" class="btn btn-success mb-2">Create A New Post</a>
+    @endauth
 @foreach ($posts as $post)
     <article>
         <input type="hidden" name="id" value="{{ $post->id }}">
         <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
-
-        <p>This post added by { {{ $post->function_to_returned_user->name }} }</p>
 
         <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit</a>
 
