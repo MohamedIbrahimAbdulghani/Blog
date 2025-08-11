@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -86,10 +86,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $user->get_phone_by_user()->create([
+        $user->phone()->create([
             'phone_number' => $data['phone_number'],
         ]);
-                $user->get_national_number_by_user()->create([
+            $user->national_number()->create([
             'national_number' => $data['national_number'],
         ]);
 

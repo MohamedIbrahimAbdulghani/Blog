@@ -18,6 +18,7 @@ class PostsController extends Controller
         $posts = Post::all();
         $users = User::all();
 
+
         return view('posts', compact('posts', 'users'));
     }
 
@@ -40,6 +41,7 @@ class PostsController extends Controller
         $posts = Post::create([
             'title' => $request->title,
             'description' => $request->description,
+            'user_id' => Auth::user()->id
         ]);
         // 3 - Return User Back
         // return redirect('/');

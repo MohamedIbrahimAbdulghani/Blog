@@ -47,11 +47,11 @@ class User extends Authenticatable
     }
 
     // this line to make relationship between user and phone
-    public function get_phone_by_user() {
+    public function phone() {
         return $this->hasOne(Phone::class);
     }
     // this line to make relationship between user and national_number
-    public function get_national_number_by_user() {
+    public function national_number() {
         return $this->hasOne(National_Number::class);
     }
 

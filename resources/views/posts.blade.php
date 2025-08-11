@@ -3,10 +3,6 @@
 
 @section('content')
 
-    {{-- {{ Auth::user()->get_national_number_by_user->National_number}} --}}
-
-    {{-- {{ Auth::user()->get_national_number_by_user->National_Number }} . "<br>"
-    {{ Auth::user()->get_phone_by_user->phone_number }} --}}
 
     <div class="container">
         @auth  <!-- it is meaning if it make authentication in my website or it is has account in my website  -->
@@ -14,6 +10,7 @@
             @else <!-- it it meaning if it don't make authentication in my website or it is don't has account in my website ( guest )  -->
                 <h1>Hello In My Blog</h1>
         @endauth
+
     {{-- Start Success Message --}}
     @if(session()->has('success'))
         <div class="alert alert-success text-center">
@@ -42,6 +39,13 @@
         <input type="hidden" name="id" value="{{ $post->id }}">
         <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
+
+        {{-- this div is important div this is to get data from another tables about relationships --}}
+        <div class="user-data">
+            <p>User Name Is : {{ $post->user->name  }}</p>
+            <p>Phone Is : {{ $post->user->phone->phone_number  }}</p>
+            <p>National Number Is : {{ $post->user->national_number->National_Number  }}</p>
+        </div>
 
         <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit</a>
 
