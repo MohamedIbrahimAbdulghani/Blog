@@ -92,7 +92,6 @@ class RegisterController extends Controller
             $user->national_number()->create([
             'national_number' => $data['national_number'],
         ]);
-
         return $user;
     }
 }

@@ -17,8 +17,6 @@ class PostsController extends Controller
     public function index() {
         $posts = Post::all();
         $users = User::all();
-
-
         return view('posts', compact('posts', 'users'));
     }
 
@@ -41,7 +39,7 @@ class PostsController extends Controller
         $posts = Post::create([
             'title' => $request->title,
             'description' => $request->description,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id // to take user_id from user and create this user_id in posts table to use it in relationship between users table and posts table if this user can make authenticate in website
         ]);
         // 3 - Return User Back
         // return redirect('/');

@@ -47,12 +47,11 @@
             <p>National Number Is : {{ $post->user->national_number->National_Number  }}</p>
         </div>
 
-        <a href="posts/{{ $post->id }}/edit" class="btn btn-info">Edit</a>
-
+        <a href="posts/{{ $post->id }}/edit" class="btn btn-info mt-3">Edit</a>
         <form action="{{ route('posts.delete', $post->id) }}" method="post" class="d-inline">
             @csrf
             @method('DELETE')
-            <input type="submit" value="Delete" class="btn btn-danger d-inline-block">
+            <input type="submit" value="Delete" class="btn btn-danger d-inline-block mt-3">
         </form>
 
     </article>

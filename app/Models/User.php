@@ -54,5 +54,9 @@ class User extends Authenticatable
     public function national_number() {
         return $this->hasOne(National_Number::class);
     }
+    // this function to make relationship between user and post => ( user know the post that added in website )
+    public function post() {
+        return $this->hasMany(Post::class);
+    }
 
 }
