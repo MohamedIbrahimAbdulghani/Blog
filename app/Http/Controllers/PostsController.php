@@ -33,12 +33,20 @@ class PostsController extends Controller
         // 1 - make validation about myData
         $request->validate([
             'title' => 'required|min:3',
-            'description' => 'required'
+            'description' => 'required',
+            'image' => 'required|file'
         ]);
+
+        // 1- get file name
+        $fileName = $request->file('image')->getClientOriginalName();
+        // 2- save file
+        $fileLocation = $request->file('image')->move(public_path('images'), $fileName);
+
         // 2 - Store - Save Data In DataBase
         $posts = Post::create([
             'title' => $request->title,
             'description' => $request->description,
+            'image' => $fileName,
             'user_id' => Auth::user()->id // to take user_id from user and create this user_id in posts table to use it in relationship between users table and posts table if this user can make authenticate in website
         ]);
         // 3 - Return User Back

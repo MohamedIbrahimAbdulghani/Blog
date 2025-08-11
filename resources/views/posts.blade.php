@@ -39,6 +39,8 @@
         <input type="hidden" name="id" value="{{ $post->id }}">
         <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
         <p>{{ $post->description }}</p>
+        {{-- to get data from database and show it in website --}}
+        <img src="{{ asset('images/'.$post->image) }}" style="width: 100px; height: 100px" alt="">
 
         {{-- this div is important div this is to get data from another tables about relationships --}}
         <div class="user-data">

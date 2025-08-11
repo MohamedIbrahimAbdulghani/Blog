@@ -26,16 +26,16 @@
     @endif
     {{-- End Success Message --}}
 
-<form action="{{ route('posts.store') }}" method="post">
+<form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
   @csrf  <!-- this is very important to make this form done -->
-  {{-- <div class="mb-3">
-    <input type="text" class="form-control" name="image" id="image" placeholder="Please Enter Image Name">
-    </div> --}}
   <div class="mb-3">
     <input type="text" class="form-control" name="title" id="title" placeholder="Please Enter Title">
   </div>
     <div class="mb-3">
     <input type="description" class="form-control" name="description" id="description" placeholder="Please Enter Description">
+  </div>
+    <div class="mb-3">
+    <input type="file" class="form-control" name="image" id="image">
   </div>
   <button type="submit" class="btn btn-primary m-auto d-table">Add</button>
 </form>
